@@ -135,17 +135,9 @@
   <div class="counter" id="counter">Views: 0</div>
 
   <script>
-    let views = localStorage.getItem('views');
-    if (!views) {
-      views = 0;
-    }
-
-    if (!localStorage.getItem('hasVisited')) {
-      views++;
-      localStorage.setItem('views', views);
-      localStorage.setItem('hasVisited', 'true');
-    }
-
+    let views = parseInt(localStorage.getItem('views')) || 0;
+    views++;
+    localStorage.setItem('views', views);
     document.getElementById('counter').textContent = `Views: ${views}`;
   </script>
 </body>
