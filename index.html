@@ -12,101 +12,78 @@
       font-family: 'Roboto', sans-serif;
       background: linear-gradient(135deg, #0d1117, #161b22);
       color: #c9d1d9;
-      text-align: center;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       height: 100vh;
+      text-align: center;
       overflow: hidden;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .container {
-      max-width: 420px;
       background: #161b22;
-      border: 2px solid #30363d;
       border-radius: 15px;
       padding: 30px;
-      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.6);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      max-width: 420px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
     }
 
     .container:hover {
-      transform: translateY(-5px);
-      box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.8);
+      transform: scale(1.02);
     }
 
     .custom-message {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
+      font-size: 2rem;
       color: #58a6ff;
       font-weight: 700;
-      letter-spacing: 1px;
       text-shadow: 0px 4px 10px rgba(88, 166, 255, 0.5);
     }
 
     .profile-image {
-      width: 130px;
-      height: 130px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
-      margin: 20px auto;
-      display: block;
       border: 4px solid #58a6ff;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s;
     }
 
     .profile-image:hover {
-      transform: scale(1.1);
+      transform: rotate(5deg) scale(1.1);
       box-shadow: 0px 6px 20px rgba(88, 166, 255, 0.6);
     }
 
     .status {
-      font-size: 1rem;
-      margin-bottom: 20px;
+      font-size: 1.1rem;
       color: #3fb950;
-      font-weight: 500;
-      letter-spacing: 0.5px;
     }
 
     .bio {
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: #8b949e;
-      margin-bottom: 20px;
-      line-height: 1.5;
+      margin: 15px 0;
     }
 
     .bio a {
       color: #58a6ff;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: bold;
     }
 
     .bio a:hover {
       text-decoration: underline;
     }
 
-    footer {
-      font-size: 0.8rem;
-      color: #6e7681;
-      margin-top: 30px;
-    }
-
-    footer a {
-      color: #58a6ff;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
     .counter {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
+      margin-top: 20px;
       background: rgba(0, 0, 0, 0.6);
-      color: #fff;
       padding: 10px 20px;
       border-radius: 8px;
       font-size: 1.2rem;
@@ -118,24 +95,17 @@
 <body>
   <div class="container">
     <h1 class="custom-message">G4's Custom Bio 💙</h1>
-    <img 
-      class="profile-image" 
-      src="Cat.jpg" 
-      alt="Custom Profile Picture">
-    <p class="status">Status: Being better than everyone else </p>
+    <img class="profile-image" src="Cat.jpg" alt="Profile Picture">
+    <p class="status">Status: Being better than everyone else</p>
     <p class="bio">
-      Python Scriptor | Join Binlys <a href="https://discord.gg/Binlyshub" target="_blank"> Discord</a> for tools & tons of modded shit
+      Python Scriptor | Join Binlys <a href="https://discord.gg/Binlyshub" target="_blank">Discord</a> for tools & tons of modded shit
     </p>
   </div>
-  
-  <footer>
-    Created by G4 | @idekbutwtv on dc
-  </footer>
 
   <div class="counter" id="counter">Views: 0</div>
 
   <script>
-    let views = parseInt(localStorage.getItem('views')) || 0;
+    let views = localStorage.getItem('views') ? parseInt(localStorage.getItem('views')) : 0;
     views++;
     localStorage.setItem('views', views);
     document.getElementById('counter').textContent = `Views: ${views}`;
