@@ -141,9 +141,6 @@
     let views = localStorage.getItem('views');
     const deviceKey = 'hasVisitedDevice';  
 
-    if (!views) {
-      views = 0;
-    }
 
     if (!localStorage.getItem(deviceKey)) {
       views++; 
